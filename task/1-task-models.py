@@ -10,12 +10,15 @@ from task.app.main import run
 # - gpt-4o
 # - claude-3-7-sonnet@20250219
 # - gemini-2.5-pro
+model_list = ['gpt-4o', 'claude-3-7-sonnet@20250219', 'gemini-2.5-pro']
 
-run(
-    deployment_name='INSERT_DEPLOYMENT_NAME',
-    print_request=False, # Switch to False if you do not want to see the request in console
-    print_only_content=False, # Switch to True if you want to see only content from response
-)
+for model in model_list:
+    print(f"\n\n--- Testing model: {model} ---")
+    run(
+        deployment_name=model,
+        print_request=False, # Switch to False if you do not want to see the request in console
+        print_only_content=False, # Switch to True if you want to see only content from response
+    )
 
 # The main goal of this task is to explore the functional capabilities of DIAL to be able to work with different
 # LLMs through unified API
